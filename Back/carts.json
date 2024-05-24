@@ -1,0 +1,30 @@
+[
+  {
+    "id": "b8eb9cfb629882b78032b813e17b1da9",
+    "ownerId": "081c7a377ad00844b9cb40fb3f37d3b3",
+    "productList": [
+      {
+        "name": "monstera",
+        "price": 30,
+        "amount": 2
+      },
+      {
+        "name": "ficus lyrata",
+        "price": 16,
+        "amount": 1
+      },
+      {
+        "name": "pothos argenté",
+        "price": 9,
+        "amount": 1
+      }
+    ],
+    "status": "open"
+  },
+  {
+    "id": "6aa6f28a37f13df04dc72ff8c20efac7",
+    "ownerId": "10c58e9b59a93346080fb407e52c69b5",
+    "productList": [],
+    "status": "open"
+  }
+]
