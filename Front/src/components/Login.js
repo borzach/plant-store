@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { addUser, loginUser } from '../apiService';
 
-const MyComponent = ({loggedInUsr,updateLoggedIn}) => {
+const LoginComponent = ({updateLoggedIn, updateCart}) => {
     const [openLogin, setOpenLogin] = useState(false);
     const [openNewAcc, setOpenNewAcc] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -18,6 +18,7 @@ const MyComponent = ({loggedInUsr,updateLoggedIn}) => {
             setOpenLogin(false);
             setIsLoggedIn(true);
             updateLoggedIn(res);
+            saveLoggedInToLocalStorage(res);
         });
     } catch (error) {
         setErrorMsg('Email ou mot de passe incorrect')
@@ -31,6 +32,7 @@ const MyComponent = ({loggedInUsr,updateLoggedIn}) => {
             setOpenNewAcc(false);
             setIsLoggedIn(true);
             updateLoggedIn(res);
+            saveLoggedInToLocalStorage(res);
         });
     } catch (error) {
         setErrorMsg('Vous avez déjà un compte avec cette adresse mail');
@@ -48,6 +50,26 @@ const MyComponent = ({loggedInUsr,updateLoggedIn}) => {
     setOpenNewAcc(false);
   };
 
+  const saveLoggedInToLocalStorage = (newLoggedInUsr) => {
+    updateLoggedIn(newLoggedInUsr);
+    localStorage.setItem('loggedInUsr', JSON.stringify(newLoggedInUsr));
+  };
+
+  useEffect(() => {
+      const storedLoggedInUsr = localStorage.getItem('loggedInUsr');
+      if (storedLoggedInUsr) {
+          updateLoggedIn(JSON.parse(storedLoggedInUsr));
+          setIsLoggedIn(true);
+      }
+  }, [updateLoggedIn]);
+
+  function logout() {
+    updateCart({ id: '', ownerId: '', productList: [], status: 'start' });
+    updateLoggedIn([]);
+    setIsLoggedIn(false);
+    localStorage.clear();
+  }
+
   let content;
 
   if (openLogin) {
@@ -58,6 +80,7 @@ const MyComponent = ({loggedInUsr,updateLoggedIn}) => {
           <input
             type="email"
             name="email"
+            className='input-text'
             onChange={handleChange}
           />
         </label>
@@ -67,6 +90,7 @@ const MyComponent = ({loggedInUsr,updateLoggedIn}) => {
           <input
             type="password"
             name="password"
+            className='input-text'
             onChange={handleChange}
           />
         </label>
@@ -84,6 +108,7 @@ const MyComponent = ({loggedInUsr,updateLoggedIn}) => {
           <input
             type="email"
             name="email"
+            className='input-text'
             onChange={handleChange}
           />
         </label>
@@ -93,6 +118,7 @@ const MyComponent = ({loggedInUsr,updateLoggedIn}) => {
           <input
             type="password"
             name="password"
+            className='input-text'
             onChange={handleChange}
           />
         </label>
@@ -111,11 +137,11 @@ const MyComponent = ({loggedInUsr,updateLoggedIn}) => {
     );
   } else if (isLoggedIn) {
     content = (
-        <button className='btn-green' onClick={() => setIsLoggedIn(false)}>Déconnexion</button>
+        <button className='btn-green' onClick={() => logout()}>Déconnexion</button>
     )
   }
 
   return <div>{content}</div>;
 };
 
-export default MyComponent;
+export default LoginComponent;

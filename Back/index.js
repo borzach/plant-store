@@ -1,11 +1,12 @@
 const express = require('express');
+const session = require('express-session');
 const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 const crypto = require('crypto');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const jsonDataPath = "./plants.json";
 const imagesPath = './public/images';
 const usersFilePath = './users.json';
@@ -32,9 +33,15 @@ function generateSecureId() {
 
 app.options('*', cors())
 app.use(cors({
-    origin: 'http://localhost:3001',
+    origin: 'http://localhost:3000',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
+}));
+
+app.use(session({
+    secret: 'your_secret_key',
+    resave: false,
+    saveUninitialized: true,
 }));
 
 app.use('/images', express.static(imagesPath));
@@ -53,6 +60,9 @@ app.post('/login', async (req, res) => {
     const user = users.find(user => user.email === email);
     if (user) {
         if (user.password === password) {
+            if (req.session) {
+                req.session.userId = user.id;
+            }
             res.json(user);
         } else {
             res.status(404).send('Mot de passe incorrect');
@@ -74,6 +84,9 @@ app.post('/users', async (req, res) => {
     } else {
         const id = generateSecureId();
         const user = { id, email, password };
+        if (req.session) {
+            req.session.userId = id;
+        }
         users.push(user);
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
         res.json(user);

@@ -1,5 +1,5 @@
 //import { plantList } from "../data/plantList";
-import { getAllPlants, API_BASE_URL, updateCartServer } from "../apiService";
+import { getAllPlants, API_BASE_URL } from "../apiService";
 import "../styles/plant.css"
 import CareScale from "./CareScale";
 import { useEffect, useState, useCallback } from 'react'
@@ -21,14 +21,15 @@ function ShoppingList({ user, cart, updateCart }) {
     }, []);
 
     const addProductToCart = useCallback((product) => {
-        if (user) {
+        console.log("add product to cart");
+        if (user.length !== 0) {
             updateCart(prevCart => ({
             ...prevCart,
             productList: [...prevCart.productList, product]
             }));
-            updateCartServer(cart.id, cart);
+            console.log(cart);
         } else {
-            console.log("you must be logged in for that");
+            alert("Créer vous un compte pour passer commande");
         }
     }, [updateCart, user, cart]);
 
@@ -57,7 +58,8 @@ function ShoppingList({ user, cart, updateCart }) {
     }
 
     return (
-        <div>
+        <div className="plant-list-container">
+            <div className="error-message"></div>
 			<ul className="plant-list">
 				{plantList.map((plant) => (
 					<li className="plant-item" key={plant.id}>

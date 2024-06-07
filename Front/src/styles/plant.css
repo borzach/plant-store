@@ -20,6 +20,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	max-width: 800px;
+	justify-content: center;
 }
 
 .plant-item-price {
@@ -33,20 +34,48 @@
 	font-weight: 500;
 }
 
+.plant-list-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
 .btn-green {
 	border-radius: 10px;
-	border-color: transparent;
+	border-color: white;
+	border-style: double;
 	background-color: #31b472;
 	color: white;
 	padding: 15px;
 	font-weight: 500;
 }
 
-.btn-white {
+.btn-green:hover {
 	border-radius: 10px;
-	border-color: transparent;
+	border-color: #31b472;
+	border-style: double;
 	background-color: white;
 	color: #31b472;
+	padding: 15px;
+	font-weight: 500;
+}
+
+.btn-white {
+	border-radius: 10px;
+	border-color: #31b472;
+	border-style: double;
+	background-color: white;
+	color: #31b472;
+	padding: 15px;
+	font-weight: 500;
+}
+
+.btn-white:hover {
+	border-radius: 10px;
+	border-color: white;
+	border-style: double;
+	background-color: #31b472;
+	color: white;
 	padding: 15px;
 	font-weight: 500;
 }

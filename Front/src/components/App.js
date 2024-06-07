@@ -15,11 +15,11 @@ function App() {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
-  const handleNewCart = useCallback(async () => {
+  const handleCart = useCallback(async () => {
     const newCart = { id: '', ownerId: loggedInUsr.id, productList: [], status: 'open' };
     if (loggedInUsr.id) {
       getCart(loggedInUsr.id).then((serverCart) => {
-        if (serverCart.length !== 0) {
+        if (serverCart.length !== 0 && serverCart.status === 'open') {
           updateCart(serverCart);
         } else {
           try {
@@ -31,32 +31,24 @@ function App() {
           }
         }
       })
-    } else {
-        console.log('Vous devez créer un compte pour utiliser le panier');
     }
 }, [loggedInUsr]);
 
   useEffect(() => {
     const fetchCart = async () => {
       try {
-          const res = await getCart(loggedInUsr.id);
-          if (res.body) {
-              console.log(res);
-              updateCart(res);
-          } else {
-              await handleNewCart();
-          }
+          await handleCart();
       } catch (error) {
           console.log(error);
       }
     };
     fetchCart();
-  }, [loggedInUsr, handleNewCart]);
+  }, [loggedInUsr, handleCart]);
 
   return (
     <div>
-      <Banner loggedInUsr={loggedInUsr} updateLoggedIn={updateLoggedIn}></Banner>
-      <Cart cart={cart} updateCart={updateCart}/>
+      <Banner updateLoggedIn={updateLoggedIn} updateCart={updateCart}></Banner>
+      <Cart cart={cart} updateCart={updateCart} handleCart={handleCart}/>
       <ShoppingList user={loggedInUsr} cart={cart} updateCart={updateCart}></ShoppingList>
       <Footer></Footer>
     </div>

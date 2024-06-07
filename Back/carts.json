@@ -6,16 +6,46 @@
       {
         "name": "monstera",
         "price": 30,
-        "amount": 2
+        "amount": 3
       },
       {
         "name": "ficus lyrata",
         "price": 16,
-        "amount": 1
+        "amount": 3
       },
       {
         "name": "pothos argenté",
         "price": 9,
+        "amount": 2
+      },
+      {
+        "name": "calathea",
+        "price": 20,
+        "amount": 1
+      },
+      {
+        "name": "olivier",
+        "price": 25,
+        "amount": 1
+      },
+      {
+        "name": "cactus",
+        "price": 6,
+        "amount": 1
+      },
+      {
+        "name": "basilique",
+        "price": 5,
+        "amount": 1
+      },
+      {
+        "name": "menthe",
+        "price": 4,
+        "amount": 1
+      },
+      {
+        "name": "succulente",
+        "price": 8,
         "amount": 1
       }
     ],
@@ -25,6 +55,161 @@
     "id": "6aa6f28a37f13df04dc72ff8c20efac7",
     "ownerId": "10c58e9b59a93346080fb407e52c69b5",
     "productList": [],
+    "status": "open"
+  },
+  {
+    "id": "f21996fb608dbe59ec5b31e7f0de955e",
+    "ownerId": "b2d7faa741be113a362dd144a1f31579",
+    "productList": [
+      {
+        "name": "ficus lyrata",
+        "price": 16,
+        "amount": 1
+      },
+      {
+        "name": "monstera",
+        "price": 30,
+        "amount": 1
+      }
+    ],
+    "status": "ready"
+  },
+  {
+    "id": "41f43e6edab2b4dd94426346ad58ac24",
+    "ownerId": "b2d7faa741be113a362dd144a1f31579",
+    "productList": [
+      {
+        "name": "ficus lyrata",
+        "price": 16,
+        "amount": 1
+      },
+      {
+        "name": "monstera",
+        "price": 30,
+        "amount": 1
+      },
+      {
+        "name": "pothos argenté",
+        "price": 9,
+        "amount": 1
+      },
+      {
+        "name": "cactus",
+        "price": 6,
+        "amount": 1
+      }
+    ],
+    "status": "ready"
+  },
+  {
+    "id": "d8cde8e4c996c38859e9eae2f6142e3f",
+    "ownerId": "b2d7faa741be113a362dd144a1f31579",
+    "productList": [
+      {
+        "name": "monstera",
+        "price": 30,
+        "amount": 1
+      }
+    ],
+    "status": "ready"
+  },
+  {
+    "id": "f36db661bc02b0eb14388ddb70e178ac",
+    "ownerId": "b2d7faa741be113a362dd144a1f31579",
+    "productList": [],
+    "status": "open"
+  },
+  {
+    "id": "aa776d06b4b4c172cc30b4c5c69ccbb0",
+    "ownerId": "b2d7faa741be113a362dd144a1f31579",
+    "productList": [
+      {
+        "name": "cactus",
+        "price": 6,
+        "amount": 3
+      }
+    ],
+    "status": "ready"
+  },
+  {
+    "id": "0677b910e428142225fe7818107f24ee",
+    "ownerId": "b2d7faa741be113a362dd144a1f31579",
+    "productList": [
+      {
+        "name": "monstera",
+        "price": 30,
+        "amount": 1
+      },
+      {
+        "name": "ficus lyrata",
+        "price": 16,
+        "amount": 1
+      }
+    ],
+    "status": "ready"
+  },
+  {
+    "id": "b675f4ee9411db290f6b1bbd5c5bde2e",
+    "ownerId": "b2d7faa741be113a362dd144a1f31579",
+    "productList": [],
+    "status": "open"
+  },
+  {
+    "id": "39e6824cb2a2924dcb73956a633521da",
+    "ownerId": "b2d7faa741be113a362dd144a1f31579",
+    "productList": [
+      {
+        "name": "monstera",
+        "price": 30,
+        "amount": 2
+      }
+    ],
+    "status": "ready"
+  },
+  {
+    "id": "bb9c1e508140241712bed37674a91b31",
+    "ownerId": "b2d7faa741be113a362dd144a1f31579",
+    "productList": [],
+    "status": "open"
+  },
+  {
+    "id": "04b1789d0c7d1811085fd2fea9e31476",
+    "ownerId": "b2d7faa741be113a362dd144a1f31579",
+    "productList": [],
+    "status": "open"
+  },
+  {
+    "id": "8aeb65d8d34e4238dd8787237719ae9c",
+    "ownerId": "b2d7faa741be113a362dd144a1f31579",
+    "productList": [
+      {
+        "name": "pothos argenté",
+        "price": 9,
+        "amount": 1
+      },
+      {
+        "name": "ficus lyrata",
+        "price": 16,
+        "amount": 1
+      }
+    ],
+    "status": "ready"
+  },
+  {
+    "id": "d13684c4d8eac9381d9eb0e44bbe9d72",
+    "ownerId": "b2d7faa741be113a362dd144a1f31579",
+    "productList": [
+      {
+        "name": "pothos argenté",
+        "price": 9,
+        "amount": 1
+      },
+      {
+        "name": "ficus lyrata",
+        "price": 16,
+        "amount": 1
+      }
+    ],
     "status": "open"
   }
 ]

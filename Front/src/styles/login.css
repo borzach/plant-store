@@ -1,3 +1,18 @@
 .login-closed {
     display: flex;
 }
+
+.input-text {
+	width: 100%;
+	padding: 10px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+	transition: border-color 0.3s ease;
+  }
+  
+  /* Style lorsqu'un champ est en focus */
+  .input-text:focus {
+	outline: none;
+	border-color: #6c63ff;
+  }

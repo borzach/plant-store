@@ -2,11 +2,11 @@ import "../styles/banner.css"
 import logo from "../assets/logo.png"
 import Login from "./Login";
 
-function Banner({loggedInUsr,updateLoggedIn}) {
+function Banner({updateLoggedIn, updateCart}) {
     return (
         <div className="banner">
             <div className="login-comp">
-                <Login loggedInUsr={loggedInUsr} updateLoggedIn={updateLoggedIn}></Login>
+                <Login updateLoggedIn={updateLoggedIn} updateCart={updateCart}></Login>
             </div>
             <div>
                 <img src={logo} alt='La maison jungle' className='logo' />
